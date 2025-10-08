@@ -36,6 +36,13 @@ const Navigation = ({ user }) => {
                                 Dashboard
                             </NavLink>
                         </div>
+                        <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <NavLink
+                                href="/posts"
+                                active={usePathname() === '/posts'}>
+                                Posts
+                            </NavLink>
+                        </div>
                     </div>
 
                     {/* Settings Dropdown */}
@@ -109,6 +116,13 @@ const Navigation = ({ user }) => {
                             href="/dashboard"
                             active={usePathname() === '/dashboard'}>
                             Dashboard
+                        </ResponsiveNavLink>
+                    </div>
+                    <div className="pt-2 pb-3 space-y-1">
+                        <ResponsiveNavLink
+                            href="/posts"
+                            active={usePathname() === '/posts'}>
+                            Posts
                         </ResponsiveNavLink>
                     </div>
 
