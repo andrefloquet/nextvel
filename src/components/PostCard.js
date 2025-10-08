@@ -2,7 +2,7 @@ export default function PostCard({ posts }) {
     return (
       <>
         {posts?.map((post) => (
-          <article className="bg-white p-6 mb-6 shadow transition duration-300 group transform hover:-translate-y-2 hover:shadow-2xl rounded-2xl cursor-pointer border">
+          <article key={post.id} className="bg-white p-6 mb-6 shadow transition duration-300 group transform hover:-translate-y-2 hover:shadow-2xl rounded-2xl cursor-pointer border">
             <a
               target="_self"
               href="/blog/slug"

@@ -20,9 +20,6 @@ const PostsIndexPage = () => {
             }),
     )
 
-    console.log(posts)
-
-
     return (
         <>
             <Header title="Posts" />
