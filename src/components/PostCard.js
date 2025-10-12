@@ -7,11 +7,6 @@ export default function PostCard({ posts }) {
       <>
         {posts?.map((post) => (
           <article key={post.id} className="bg-white p-6 mb-6 shadow transition duration-300 group transform hover:-translate-y-2 hover:shadow-2xl rounded-2xl cursor-pointer border">
-            <Link
-              target="_self"
-              href={"/posts/" + post.slug}
-              className="absolute opacity-0 top-0 right-0 left-0 bottom-0"
-            ></Link>
             <div className="relative mb-4 rounded-2xl">
               <img
                 className="max-h-80 rounded-2xl w-full object-cover transition-transform duration-300 transform group-hover:scale-105"
@@ -116,7 +111,7 @@ export default function PostCard({ posts }) {
             </h3>
             <hr className="w-3/4 mx-auto mt-4" />
               <div className="flex items-center justify-between mt-4 mx-6">
-                <Link href={"/posts/" + post.slug + "/edit"}>
+                <Link href={`/posts/${post.slug}/edit`}>
                   <Button>
                     Edit
                   </Button>
