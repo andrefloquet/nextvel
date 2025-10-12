@@ -1,4 +1,6 @@
 import Link from 'next/link'
+import Button from '@/components/Button'
+import DeleteButton from '@/components/DeleteButton'
 
 export default function PostCard({ posts }) {
     return (
@@ -112,6 +114,19 @@ export default function PostCard({ posts }) {
                 {post.title}
               </Link>
             </h3>
+            <hr className="w-3/4 mx-auto mt-4" />
+              <div className="flex items-center justify-between mt-4 mx-6">
+                <Link href={"/posts/" + post.slug + "/edit"}>
+                  <Button>
+                    Edit
+                  </Button>
+                </Link>
+                <Link href="#">
+                  <DeleteButton>
+                    Delete
+                  </DeleteButton>
+                </Link>
+              </div>
           </article>
         ))}
       </>
