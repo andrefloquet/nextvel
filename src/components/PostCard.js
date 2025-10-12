@@ -1,13 +1,15 @@
+import Link from 'next/link'
+
 export default function PostCard({ posts }) {
     return (
       <>
         {posts?.map((post) => (
           <article key={post.id} className="bg-white p-6 mb-6 shadow transition duration-300 group transform hover:-translate-y-2 hover:shadow-2xl rounded-2xl cursor-pointer border">
-            <a
+            <Link
               target="_self"
-              href="/blog/slug"
+              href={"/posts/" + post.slug}
               className="absolute opacity-0 top-0 right-0 left-0 bottom-0"
-            ></a>
+            ></Link>
             <div className="relative mb-4 rounded-2xl">
               <img
                 className="max-h-80 rounded-2xl w-full object-cover transition-transform duration-300 transform group-hover:scale-105"
@@ -32,9 +34,9 @@ export default function PostCard({ posts }) {
                 <span className="ml-1 text-sm text-slate-400">2</span>
               </div>
 
-              <a
+              <Link
                 className="flex justify-center items-center bg-red-700 bg-opacity-80 z-10 absolute top-0 left-0 w-full h-full text-white rounded-2xl opacity-0 transition-all duration-300 transform group-hover:scale-105 text-xl group-hover:opacity-100"
-                href="#"
+                href={"/posts/" + post.slug}
                 target="_self"
                 rel="noopener noreferrer"
               >
@@ -53,7 +55,7 @@ export default function PostCard({ posts }) {
                     d="M13 5l7 7-7 7M5 5l7 7-7 7"
                   ></path>
                 </svg>
-              </a>
+              </Link>
             </div>
             <div className="flex justify-between items-center w-full pb-4 mb-auto">
               <div className="flex items-center">
@@ -103,12 +105,12 @@ export default function PostCard({ posts }) {
               </div>
             </div>
             <h3 className="font-medium text-xl leading-8">
-              <a
-                href="/blog/slug"
+              <Link
+                href={"/posts/" + post.slug}
                 className="block relative group-hover:text-red-700 transition-colors duration-200 "
               >
                 {post.title}
-              </a>
+              </Link>
             </h3>
           </article>
         ))}
