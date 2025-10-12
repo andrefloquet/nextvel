@@ -1,6 +1,6 @@
 'use client'
 
-import useSWR from 'swr'
+import { useState, useEffect } from 'react'
 import axios from '@/lib/axios'
 
 import Header from '@/app/(app)/Header'
@@ -11,16 +11,16 @@ import PostLinks from '@/app/(app)/posts/PostLinks'
 
 const PostsIndexPage = () => {
 
-    const { data: posts } = useSWR('/api/posts', () =>
+    const [posts, setPosts] = useState([[{}]])
+
+    useEffect(() => {
         axios
             .get('/api/posts')
-            .then(res => res.data)
+            .then(res => {setPosts(res.data)})
             .catch(error => {
                 if (error.response.status !== 409) throw error
-
-                // router.push('/')
-            }),
-    )
+            })
+    }, [posts])
 
     return (
         <>
@@ -28,7 +28,9 @@ const PostsIndexPage = () => {
             <PageContainer>
                 <PostLinks />
                 <PageListingContainer>
-                    <PostCard posts={posts} />
+                {posts?.map((post) => (
+                    <PostCard post={post} />
+                 ))} 
                 </PageListingContainer>
             </PageContainer>
         </>
