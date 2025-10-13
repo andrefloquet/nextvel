@@ -29,7 +29,7 @@ const PostsIndexPage = () => {
                 <PostLinks />
                 <PageListingContainer>
                 {posts?.map((post) => (
-                    <PostCard post={post} />
+                    <PostCard key={post.id} post={post} />
                  ))} 
                 </PageListingContainer>
             </PageContainer>

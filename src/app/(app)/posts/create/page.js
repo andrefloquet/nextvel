@@ -25,7 +25,7 @@ export default function PostCreate() {
     const [messageText, setMessageText] = useState('')
     const [buttonText, setButtonText] = useState('Create')
 
-    const { user, csrf, mutate } = useAuth();
+    const { user, csrf, mutate } = useAuth()
 
     const create = async ({ setErrors, ...props }) => {
 
@@ -56,11 +56,11 @@ export default function PostCreate() {
             })
     }
 
-    const resetForm = () => {
-        setTitle('')
-        setExcerpt('')
-        setBody('')
-    }
+    // const resetForm = () => {
+    //     setTitle('')
+    //     setExcerpt('')
+    //     setBody('')
+    // }
 
     const submitForm = event => {
         event.preventDefault()

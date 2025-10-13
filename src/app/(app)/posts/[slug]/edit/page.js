@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { useParams } from 'next/navigation'
 
 import useSWR from 'swr'
 import axios from '@/lib/axios'
@@ -28,7 +27,7 @@ export default function PostEdit({ params }) {
     const [messageText, setMessageText] = useState('')
     const [buttonText, setButtonText] = useState('Update')
 
-    const { data: post } = useSWR('/api/posts/' + params.slug, () =>
+    const { data } = useSWR('/api/posts/' + params.slug, () =>
         axios
             .get('/api/posts/' + params.slug)
             .then(res => {
@@ -41,7 +40,7 @@ export default function PostEdit({ params }) {
             })
             .catch(error => {
                 if (error.response.status !== 409) throw error
-            }),
+            })
     )
 
     const { user, csrf, mutate } = useAuth();

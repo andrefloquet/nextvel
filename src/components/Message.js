@@ -1,14 +1,14 @@
-import SuccessSvg from '@/components/SuccessSvg';
-import FailSvg from '@/components/FailSvg';
+import SuccessSvg from '@/components/SuccessSvg'
+import FailSvg from '@/components/FailSvg'
 
 export default function Message(props) {
 
-    let addClass = "border-green-400 bg-green-100";
+    let addClass = "border-green-400 bg-green-100"
     let svgComponent = <SuccessSvg />
 
     { 
         if(props.type !== "success") {
-            addClass = "border-red-400 bg-red-100";
+            addClass = "border-red-400 bg-red-100"
             svgComponent = <FailSvg />
         } 
     }
@@ -22,5 +22,5 @@ export default function Message(props) {
                 <span className='bold text-lg'>{props.text}</span>
             </div>
         </div>
-    );
+    )
 }

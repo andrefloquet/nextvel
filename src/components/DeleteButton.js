@@ -6,4 +6,4 @@ const DeleteButton = ({ type = 'button', className, ...props }) => (
     />
 )
 
-export default DeleteButton;
+export default DeleteButton

@@ -22,5 +22,5 @@ export default function SuccessSvg() {
                 </g>
             </svg>
         </>
-    );
+    )
 }

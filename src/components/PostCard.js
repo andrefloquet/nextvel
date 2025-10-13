@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 import axios from '@/lib/axios'
 import { useAuth } from '@/hooks/auth'
@@ -8,7 +9,7 @@ import DeleteButton from '@/components/DeleteButton'
 
 export default function PostCard({ post }) {
 
-  const { csrf, mutate } = useAuth();
+  const { csrf, mutate } = useAuth()
 
   const destroy = async (slug) => {
 
@@ -34,11 +35,12 @@ export default function PostCard({ post }) {
   return (
     <>
       <article key={post.id} className="bg-white p-6 mb-6 shadow transition duration-300 group transform hover:-translate-y-2 hover:shadow-2xl rounded-2xl cursor-pointer border">
-        <div className="relative mb-4 rounded-2xl">
-          <img
+        <div className="relative mb-4 rounded-2xl h-56">
+          <Image
             className="max-h-80 rounded-2xl w-full object-cover transition-transform duration-300 transform group-hover:scale-105"
             src="https://images.pexels.com/photos/163097/twitter-social-media-communication-internet-network-163097.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
             alt=""
+            fill
           />
           <div className="absolute bottom-3 left-3 inline-flex items-center rounded-lg bg-white p-2 shadow-md">
             <svg
@@ -84,10 +86,12 @@ export default function PostCard({ post }) {
         <div className="flex justify-between items-center w-full pb-4 mb-auto">
           <div className="flex items-center">
             <div className="pr-3">
-              <img
+              <Image
                 className="h-12 w-12 rounded-full object-cover"
                 src="https://images.pexels.com/photos/163097/twitter-social-media-communication-internet-network-163097.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                 alt=""
+                width={12}
+                height={12}
               />
             </div>
             <div className="flex flex-1">
