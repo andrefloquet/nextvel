@@ -27,7 +27,7 @@ export default function PostEdit({ params }) {
     const [messageText, setMessageText] = useState('')
     const [buttonText, setButtonText] = useState('Update')
 
-    const { data } = useSWR('/api/posts/' + params.slug, () =>
+    const {  } = useSWR('/api/posts/' + params.slug, () =>
         axios
             .get('/api/posts/' + params.slug)
             .then(res => {
@@ -43,7 +43,7 @@ export default function PostEdit({ params }) {
             })
     )
 
-    const { user, csrf, mutate } = useAuth();
+    const { user, csrf, mutate } = useAuth()
 
     const update = async ({ setErrors, ...props }) => {
 

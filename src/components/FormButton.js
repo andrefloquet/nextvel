@@ -6,7 +6,7 @@ import Button from '@/components/Button'
 
 export default function FormButton() {
 
-    const { pending } = useFormStatus();
+    const { pending } = useFormStatus()
 
     return (
         <Button className="ml-4" disabled={pending}>

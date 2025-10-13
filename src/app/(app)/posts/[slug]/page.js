@@ -46,5 +46,5 @@ export default function PostShowPage({ params }) {
                 ></div>
             </PageContainer>
         </>
-    );
+    )
   }
