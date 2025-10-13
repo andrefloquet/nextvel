@@ -27,7 +27,7 @@ export default function PostEdit({ params }) {
     const [messageText, setMessageText] = useState('')
     const [buttonText, setButtonText] = useState('Update')
 
-    const {  } = useSWR('/api/posts/' + params.slug, () =>
+    useSWR('/api/posts/' + params.slug, () =>
         axios
             .get('/api/posts/' + params.slug)
             .then(res => {
