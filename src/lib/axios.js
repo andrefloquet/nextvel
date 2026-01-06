@@ -1,5 +1,11 @@
 import Axios from 'axios'
 
+function getCookie(name) {
+  if (typeof document === 'undefined') return null
+  const match = document.cookie.match(new RegExp('(^|; )' + name + '=([^;]*)'))
+  return match ? match[2] : null
+}
+
 const axios = Axios.create({
     baseURL: process.env.NEXT_PUBLIC_BACKEND_URL,
     headers: {
