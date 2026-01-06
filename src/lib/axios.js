@@ -9,6 +9,7 @@ const axios = Axios.create({
         'Accept': 'application/json',
     },
     withCredentials: true,
+    credentials: 'include',
     withXSRFToken: true,
     xsrfCookieName: 'XSRF-TOKEN',
     xsrfHeaderName: 'X-XSRF-TOKEN',
