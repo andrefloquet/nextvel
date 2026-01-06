@@ -31,12 +31,14 @@ export default function PostCreate() {
 
         setButtonText('Submitting...')
 
-        const token = await csrf()
+        await csrf()
+
+        console.log(token)
 
         setErrors([])
 
         axios
-            .post('/api/posts', props, { headers: { 'X-XSRF-TOKEN': token } })
+            .post('/api/posts', props)
             .then(() => {
                 mutate()
                 setIsVisible(true)
