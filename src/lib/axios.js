@@ -12,4 +12,14 @@ const axios = Axios.create({
     xsrfHeaderName: 'X-XSRF-TOKEN',
 })
 
+// Force XSRF header on every request (only in the browser)
+axios.interceptors.request.use((config) => {
+  const token = getCookie('XSRF-TOKEN')
+  if (token) {
+    config.headers = config.headers ?? {}
+    config.headers['X-XSRF-TOKEN'] = decodeURIComponent(token)
+  }
+  return config
+})
+
 export default axios
