@@ -33,8 +33,6 @@ export default function PostCreate() {
 
         await csrf()
 
-        console.log(token)
-
         setErrors([])
 
         axios
