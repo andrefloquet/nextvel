@@ -1,5 +1,3 @@
-'use client'
-
 import Axios from 'axios'
 
 const axios = Axios.create({
@@ -9,24 +7,7 @@ const axios = Axios.create({
         'Accept': 'application/json',
     },
     withCredentials: true,
-    credentials: 'include',
-    withXSRFToken: true,
-    xsrfCookieName: 'XSRF-TOKEN',
-    xsrfHeaderName: 'X-XSRF-TOKEN',
-})
-
-// Force XSRF header on every request (only in the browser)
-axios.interceptors.request.use((config) => {
-
-  const match = document.cookie.match(/(^|; )XSRF-TOKEN=([^;]*)/)
-  const token = match ? match[2] : null
-
-  if (token) {
-    config.headers = config.headers ?? {}
-    config.headers['X-XSRF-TOKEN'] = decodeURIComponent(token)
-  }
-
-  return config
+    withXSRFToken: true
 })
 
 export default axios
